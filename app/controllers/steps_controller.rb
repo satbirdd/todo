@@ -2,7 +2,8 @@ class StepsController < ApplicationController
   # GET /steps
   # GET /steps.json
   def index
-    @steps = Step.all
+    @todo = Todo.find(params[:todo_id])
+    @steps = @todo.steps
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +25,7 @@ class StepsController < ApplicationController
   # GET /steps/new
   # GET /steps/new.json
   def new
+    @todo = Todo.find(params[:todo_id])
     @step = Step.new
 
     respond_to do |format|
@@ -40,11 +42,12 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new(params[:step])
+    @todo = Todo.find(params[:todo_id])
+    @step = @todo.steps.create(params[:step])
 
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
+        format.html { redirect_to [@todo, @step], notice: 'Step was successfully created.' }
         format.json { render json: @step, status: :created, location: @step }
       else
         format.html { render action: "new" }
