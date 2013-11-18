@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  completed_percents: 1
+  description: MyText
+
+two:
+  title: MyString
+  completed_percents: 1
+  description: MyText
