@@ -1,6 +1,6 @@
 Todos::Application.routes.draw do
   resources :todos do
-    resources :steps
+    resources :sub_todos, controller: :todos
   end
 
 

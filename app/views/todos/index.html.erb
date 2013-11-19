@@ -10,15 +10,15 @@
           <div class="bar" style="width: <%= todo.completed_percents > 0.5 ? todo.completed_percents : 0.5 %>%;"></div>
         </div>
         <ul>
-          <% todo.steps.each do |step| %>
-            <li><%= step.title %>: <%= step.percents %></li>
+          <% todo.sub_todos.each do |sub_todo| %>
+            <li><%= sub_todo.title %>: <%= sub_todo.percents %></li>
           <% end %>
         </ul>
 
         <span class="description">备注：<%= todo.description %></span>
 
         <div class="actions">
-          <%= link_to(new_todo_step_path(todo), class: 'btn') do %>
+          <%= link_to(new_todo_sub_todo_path(todo), class: 'btn') do %>
             <i class="icon-plus"></i> 添加里程牌
           <% end %>
           <%= link_to(todo, class: 'btn') do %>
