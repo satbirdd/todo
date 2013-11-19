@@ -8,7 +8,12 @@ body {
   margin-right: auto;
 }
 
-a.add_todo.btn {
-  width: 100%;
-  color: white;
+.add_todo {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  a.btn {
+    color: white;
+    width: 100%;
+  }
 }
