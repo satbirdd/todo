@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Percents</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +11,6 @@
 <% @steps.each do |step| %>
   <tr>
     <td><%= step.title %></td>
-    <td><%= step.percents %></td>
     <td><%= link_to 'Show', todo_step_path(@todo, step) %></td>
     <td><%= link_to 'Edit', edit_todo_step_path(@todo, step) %></td>
     <td><%= link_to 'Destroy', todo_step_path(@todo, step), method: :delete, data: { confirm: 'Are you sure?' } %></td>

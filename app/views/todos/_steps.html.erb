@@ -1,0 +1,10 @@
+<ul>
+  <% todo.steps.each do |step| %>
+    <li>
+      <%= step.title %>
+      <%= link_to 'Finish',
+                  todo_step_path(todo, step, "step[completed]" => true),
+                  {:remote => true, :method => :put} %>
+    </li>
+  <% end %>
+</ul>

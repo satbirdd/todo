@@ -1,5 +1,5 @@
 class Step < ActiveRecord::Base
-  attr_accessible :percents, :title, :todo_id
+  attr_accessible :title, :todo_id, :completed
 
   belongs_to :todo
 end

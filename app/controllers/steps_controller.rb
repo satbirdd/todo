@@ -62,11 +62,13 @@ class StepsController < ApplicationController
   # PUT /steps/1
   # PUT /steps/1.json
   def update
+    @todo = Todo.find(params[:todo_id])
     @step = Step.find(params[:id])
+    debugger
 
     respond_to do |format|
       if @step.update_attributes(params[:step])
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
+        format.html { redirect_to [@todo, @step], notice: 'Step was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
