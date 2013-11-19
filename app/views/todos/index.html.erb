@@ -1,11 +1,11 @@
-<h1>Listing todos</h1>
+<h3>待办事项</h3>
 
 <ul>
   <% @todos.each do |todo| %>
     <li>
       <div>
-        <span class="title">Title: <%= todo.title %></span><br>
-        Finished Percents: <span style="color: red;"><%= todo.completed_percents %>%</span>
+        <span class="title"><%= todo.title %></span><br>
+        进度：<span style="color: red;"><%= todo.completed_percents %>%</span>
         <div class="progress progress-info progress-striped">
           <div class="bar" style="width: <%= todo.completed_percents > 0.5 ? todo.completed_percents : 0.5 %>%;"></div>
         </div>
@@ -15,20 +15,20 @@
           <% end %>
         </ul>
 
-        <span class="description">Description: <%= todo.description %></span>
+        <span class="description">备注：<%= todo.description %></span>
 
         <div class="actions">
           <%= link_to(new_todo_step_path(todo), class: 'btn') do %>
-            <i class="icon-plus"></i> Add Step
+            <i class="icon-plus"></i> 添加里程牌
           <% end %>
           <%= link_to(todo, class: 'btn') do %>
-            <i class="icon-zoom-in"></i> Show
+            <i class="icon-zoom-in"></i> 查看
           <% end %>
           <%= link_to edit_todo_path(todo), class: 'btn' do %>
-            <i class="icon-edit"></i> Edit
+            <i class="icon-edit"></i> 修改
           <% end %>
           <%= link_to(todo, method: :delete,  class: 'btn', data: { confirm: 'Are you sure?'}) do %>
-            <i class="icon-remove"></i> Destroy
+            <i class="icon-remove"></i> 搁置
           <% end %>
         </div>
       </div>
@@ -39,5 +39,5 @@
 <br />
 
 <%= link_to new_todo_path, {class: 'add_todo btn btn-large btn-primary'} do %>
-  <i class="icon-plus"></i> New Todo
+  <i class="icon-plus"></i> 新建待办事项
 <% end %>
