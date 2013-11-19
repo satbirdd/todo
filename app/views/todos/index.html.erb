@@ -9,7 +9,14 @@
         <div class="progress progress-info progress-striped">
           <div class="bar" style="width: <%= todo.completed_percents > 0.5 ? todo.completed_percents : 0.5 %>%;"></div>
         </div>
+        <ul>
+          <% todo.steps.each do |step| %>
+            <li><%= step.title %>: <%= step.percents %></li>
+          <% end %>
+        </ul>
+
         <span class="description">Description: <%= todo.description %></span>
+
         <div class="actions">
           <%= link_to(new_todo_step_path(todo), class: 'btn') do %>
             <i class="icon-plus"></i> Add Step

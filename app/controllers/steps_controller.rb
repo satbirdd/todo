@@ -14,6 +14,7 @@ class StepsController < ApplicationController
   # GET /steps/1
   # GET /steps/1.json
   def show
+    @todo = Todo.find(params[:todo_id])
     @step = Step.find(params[:id])
 
     respond_to do |format|
@@ -36,6 +37,7 @@ class StepsController < ApplicationController
 
   # GET /steps/1/edit
   def edit
+    @todo = Todo.find(params[:todo_id])
     @step = Step.find(params[:id])
   end
 
@@ -75,11 +77,12 @@ class StepsController < ApplicationController
   # DELETE /steps/1
   # DELETE /steps/1.json
   def destroy
+    @todo = Todo.find(params[:todo_id])
     @step = Step.find(params[:id])
     @step.destroy
 
     respond_to do |format|
-      format.html { redirect_to steps_url }
+      format.html { redirect_to todo_steps_url(@todo) }
       format.json { head :no_content }
     end
   end
