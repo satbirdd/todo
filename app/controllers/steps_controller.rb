@@ -1,8 +1,9 @@
 class StepsController < ApplicationController
+  before_filter :get_todo
   # GET /steps
   # GET /steps.json
   def index
-    @todo = Todo.find(params[:todo_id])
+    # @todo = Todo.find(params[:todo_id])
     @steps = @todo.steps
 
     respond_to do |format|
@@ -14,7 +15,7 @@ class StepsController < ApplicationController
   # GET /steps/1
   # GET /steps/1.json
   def show
-    @todo = Todo.find(params[:todo_id])
+    # @todo = Todo.find(params[:todo_id])
     @step = Step.find(params[:id])
 
     respond_to do |format|
@@ -26,7 +27,7 @@ class StepsController < ApplicationController
   # GET /steps/new
   # GET /steps/new.json
   def new
-    @todo = Todo.find(params[:todo_id])
+    # @todo = Todo.find(params[:todo_id])
     @step = Step.new
 
     respond_to do |format|
@@ -37,14 +38,14 @@ class StepsController < ApplicationController
 
   # GET /steps/1/edit
   def edit
-    @todo = Todo.find(params[:todo_id])
+    # @todo = Todo.find(params[:todo_id])
     @step = Step.find(params[:id])
   end
 
   # POST /steps
   # POST /steps.json
   def create
-    @todo = Todo.find(params[:todo_id])
+    # @todo = Todo.find(params[:todo_id])
     @step = @todo.steps.create(params[:step])
 
     respond_to do |format|
@@ -77,7 +78,7 @@ class StepsController < ApplicationController
   # DELETE /steps/1
   # DELETE /steps/1.json
   def destroy
-    @todo = Todo.find(params[:todo_id])
+    # @todo = Todo.find(params[:todo_id])
     @step = Step.find(params[:id])
     @step.destroy
 
@@ -86,4 +87,9 @@ class StepsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  protected
+    def get_todo
+      @todo = Todo.find(params[:todo_id])
+    end
 end
