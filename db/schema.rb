@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20131119141318) do
 
   create_table "steps", :force => true do |t|
     t.string   "title"
-    t.integer  "percents"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.integer  "todo_id"
