@@ -64,7 +64,6 @@ class StepsController < ApplicationController
   def update
     @todo = Todo.find(params[:todo_id])
     @step = Step.find(params[:id])
-    debugger
 
     respond_to do |format|
       if @step.update_attributes(params[:step])
