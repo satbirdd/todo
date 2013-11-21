@@ -1,42 +1,16 @@
 <h3>待办事项</h3>
 
 <ul>
-  <% @todos.each do |todo| %>
-    <li>
-      <div>
-        <span class="title"><%= todo.title %></span><br>
-        进度：<span style="color: red;"><%= todo.completed_percents %>%</span>
-        <div class="progress progress-info progress-striped">
-          <div class="bar" style="width: <%= todo.completed_percents > 0.5 ? todo.completed_percents : 0.5 %>%;"></div>
-        </div>
-
-        <%= render partial: "steps", locals: {todo: todo} %>
-
-        <span class="description">备注：<%= todo.description %></span>
-
-        <div class="actions">
-          <%= link_to(new_todo_step_path(todo), class: 'btn') do %>
-            <i class="icon-plus"></i> 添加里程牌
-          <% end %>
-          <%= link_to(todo, class: 'btn') do %>
-            <i class="icon-zoom-in"></i> 查看
-          <% end %>
-          <%= link_to edit_todo_path(todo), class: 'btn' do %>
-            <i class="icon-edit"></i> 修改
-          <% end %>
-          <%= link_to(todo, method: :delete,  class: 'btn', data: { confirm: 'Are you sure?'}) do %>
-            <i class="icon-remove"></i> 搁置
-          <% end %>
-        </div>
-      </div>
-    </li>
-  <% end %>
+  <%= render @todos %>
 </ul>
 
 <br />
 
 <div class="add_todo ">
-  <%= link_to new_todo_path, {class: 'btn btn-large btn-primary'} do %>
+  <%= link_to new_todo_path, {class: 'btn btn-primary'} do %>
     <i class="icon-plus"></i> 新建待办事项
   <% end %>
 </div>
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "todos" %>
+<% end %>

@@ -1,0 +1,13 @@
+<li>
+  <%= step.title %>
+  <% unless step.completed %>
+    <%= link_to "javascript:void(0);",
+                :class => "btn btn-mini finish_step",
+                "data-todo_id" => step.todo.id,
+                "data-step_id" => step.id do %>
+      <i class="icon-hand-left"> Finish</i>
+    <% end %>
+  <% else %>
+    <span style='color: green;'><i class="icon-ok"></i>completed!</span>
+  <% end %>
+</li>

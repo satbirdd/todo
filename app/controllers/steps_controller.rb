@@ -67,7 +67,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       if @step.update_attributes(params[:step])
-        format.html { redirect_to todos_path, notice: 'Step was successfully updated.' }
+        format.html { redirect_to todos_path, status: 303, notice: 'Step was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
