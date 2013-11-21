@@ -1,18 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <%= @todo.title %>
-</p>
-
-<p>
-  <b>进度：</b>
-  <%= @todo.completed_percents %>
-</p>
-
-<p>
-  <b>备注：</b>
-  <%= @todo.description %>
-</p>
+<%= render @todo %>
 
 
 <%= link_to '修改', edit_todo_path(@todo) %> |

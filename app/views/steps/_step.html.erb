@@ -1,13 +1,19 @@
 <li>
   <%= step.title %>
   <% unless step.completed %>
-    <%= link_to "javascript:void(0);",
-                :class => "btn btn-mini finish_step",
-                "data-todo_id" => step.todo.id,
-                "data-step_id" => step.id do %>
+    <%= link_to todo_step_path(step.todo, step, "step[completed]" => true),
+                  :class => "btn btn-mini finish_step",
+                  :method => :put do %>
       <i class="icon-hand-left"> Finish</i>
     <% end %>
   <% else %>
-    <span style='color: green;'><i class="icon-ok"></i>completed!</span>
+    <span style='color: green;'>
+      <i class="icon-ok"></i> completed!
+      <%= link_to todo_step_path(step.todo, step, "step[completed]" => false),
+                  :class => "btn btn-mini redo_step",
+                  :method => :put do %>
+        <i class="icon-hand-left"> Redo</i>
+      <% end %>
+    </span>
   <% end %>
 </li>

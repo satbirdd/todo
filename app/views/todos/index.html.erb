@@ -1,4 +1,4 @@
-<h3>待办事项</h3>
+<h3 class='title'>待办事项</h3>
 
 <ul>
   <%= render @todos %>
@@ -11,6 +11,3 @@
     <i class="icon-plus"></i> 新建待办事项
   <% end %>
 </div>
-<% content_for :javascripts do %>
-  <%= javascript_include_tag "todos" %>
-<% end %>

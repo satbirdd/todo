@@ -1,6 +1,6 @@
 <li>
   <div>
-    <span class="title"><%= todo.title %></span><br>
+    <div class="title"><%= todo.title %></div>
     进度：<span style="color: red;"><%= todo.completed_percents %>%</span>
     <div class="progress progress-info progress-striped">
       <div class="bar" style="width: <%= todo.completed_percents > 0.5 ? todo.completed_percents : 0.5 %>%;"></div>
