@@ -6,25 +6,6 @@
       <div class="bar" style="width: <%= todo.completed_percents > 0.5 ? todo.completed_percents : 0.5 %>%;"></div>
     </div>
 
-    <ul>
-      <%= render todo.steps %>
-    </ul>
-
-    <span class="description">备注：<%= todo.description %></span>
-
-    <div class="actions">
-      <%= link_to(new_todo_step_path(todo), class: 'btn') do %>
-        <i class="icon-plus"></i> 添加里程牌
-      <% end %>
-      <%= link_to(todo, class: 'btn') do %>
-        <i class="icon-zoom-in"></i> 查看
-      <% end %>
-      <%= link_to edit_todo_path(todo), class: 'btn' do %>
-        <i class="icon-edit"></i> 修改
-      <% end %>
-      <%= link_to(todo, method: :delete,  class: 'btn', data: { confirm: 'Are you sure?'}) do %>
-        <i class="icon-remove"></i> 搁置
-      <% end %>
-    </div>
+    <%= render partial: "detail", locals: {todo: todo} %>
   </div>
 </li>

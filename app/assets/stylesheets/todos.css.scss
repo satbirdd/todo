@@ -6,6 +6,7 @@ div.body {
   width: 980px;
   margin-left: auto;
   margin-right: auto;
+  // background: #f1f1f1;
   .add_todo {
     width: 40%;
     margin-left: auto;
@@ -24,13 +25,15 @@ div.body {
     font-size: 17px;
     margin: 10px 0;
     width: 100%;
-    border-bottom: 1px solid gray;
+    background-color: transparent;
+    border-bottom: 1px solid #cccccc;
   }
 
   ul.todo-list li.todo-item {
-    padding: 10px 20px;
+    padding: 20px 40px;
     margin: 30px 0;
-    background: #f1f1f1;
+    // background: orange;
+    // background: #f1f1f1;
     list-style-type: none;
   }
 }
