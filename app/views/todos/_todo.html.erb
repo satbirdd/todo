@@ -1,6 +1,6 @@
 <li class="todo-item">
   <div>
-    <div class="title"><%= todo.title %></div>
+    <div class="title"><%= todo.title %><span class="date">开始于<%= "#{todo.created_at.month}月#{todo.created_at.day}日" %></span></div>
     进度：<span style="color: red;"><%= todo.completed_percents %>%</span>
     <div class="progress progress-info progress-striped">
       <div class="bar" style="width: <%= todo.completed_percents > 0.5 ? todo.completed_percents : 0.5 %>%;"></div>

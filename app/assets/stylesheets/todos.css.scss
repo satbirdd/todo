@@ -27,6 +27,11 @@ div.body {
     width: 100%;
     background-color: transparent;
     border-bottom: 1px solid #cccccc;
+    .date {
+      font-size: 13px;
+      display: inline-block;
+      float: right;
+    }
   }
 
   ul.todo-list li.todo-item {
