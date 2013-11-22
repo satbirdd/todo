@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131119141318) do
+ActiveRecord::Schema.define(:version => 20131122143157) do
 
   create_table "steps", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20131119141318) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.boolean  "completed",   :default => false
+    t.integer  "step_id"
   end
 
 end

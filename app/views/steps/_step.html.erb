@@ -6,13 +6,24 @@
                   :method => :put do %>
       <i class="icon-hand-left"> Finish</i>
     <% end %>
+    <% if step.has_sub_todo? %>
+      <%= link_to todo_path(step.sub_todo),
+          :class => "btn btn-mini new_sub" do %>
+          <i class="icon-hand-right"></i> Go2Sub
+      <% end %>
+    <% else %>
+      <%= link_to "/todos/steps/#{step.id}/sub_todo",
+          :class => "btn btn-mini new_sub" do %>
+          <i class="icon-bell"></i> Sub
+      <% end %>
+    <% end %>
   <% else %>
     <span style='color: green;'>
       <i class="icon-ok"></i> completed!
       <%= link_to todo_step_path(step.todo, step, "step[completed]" => false),
                   :class => "btn btn-mini redo_step",
                   :method => :put do %>
-        <i class="icon-hand-left"> Redo</i>
+        <i class="icon-hand-left"></i> Redo
       <% end %>
     </span>
   <% end %>

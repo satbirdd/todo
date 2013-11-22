@@ -1,6 +1,9 @@
 Todos::Application.routes.draw do
   resources :todos do
     resources :steps
+    collection do
+      get "/steps/:step_id/sub_todo", to: "todos#sub_todo"
+    end
   end
 
 

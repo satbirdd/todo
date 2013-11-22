@@ -32,6 +32,15 @@ class TodosController < ApplicationController
     end
   end
 
+  def sub_todo
+    @todo = Todo.new(step_id: params[:step_id])
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @todo }
+    end
+  end
+
   # GET /todos/1/edit
   def edit
     @todo = Todo.find(params[:id])
