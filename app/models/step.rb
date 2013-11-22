@@ -8,4 +8,9 @@ class Step < ActiveRecord::Base
   def has_sub_todo?
     return !!sub_todo
   end
+
+  def check_complete_status
+    is_sub_todo_completed = sub_todo.completed
+    update_attribute("completed", is_sub_todo_completed)
+  end
 end

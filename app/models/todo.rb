@@ -14,4 +14,14 @@ class Todo < ActiveRecord::Base
       completed ? 100 : 0
     end
   end
+
+  def check_complete_status
+    is_completed = steps.all? { |step| step.completed }
+    update_attribute("completed", is_completed)
+    update_parent_step_status
+  end
+
+  def update_parent_step_status
+    parent_step.check_complete_status if parent_step
+  end
 end
