@@ -1,5 +1,5 @@
 class Todo < ActiveRecord::Base
-  attr_accessible :description, :title, :step_id
+  attr_accessible :description, :title, :step_id, :completed
   # attr_accessor :completed_percents
 
   has_many :steps
@@ -23,5 +23,9 @@ class Todo < ActiveRecord::Base
 
   def update_parent_step_status
     parent_step.check_complete_status if parent_step
+  end
+
+  def not_completed?
+    !completed
   end
 end

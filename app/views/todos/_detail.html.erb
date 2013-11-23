@@ -14,7 +14,18 @@
   <%= link_to edit_todo_path(todo), class: 'btn' do %>
     <i class="icon-edit"></i> 修改
   <% end %>
-  <%= link_to(todo, method: :delete,  class: 'btn', data: { confirm: 'Are you sure?'}) do %>
+  <%= link_to todo, method: :delete,  class: 'btn', data: { confirm: 'Are you sure?'} do %>
     <i class="icon-remove"></i> 搁置
+  <% end %>
+  <% if todo.steps.empty? %>
+    <% if todo.not_completed? %>
+      <%= link_to todo_path(todo, "todo[completed]" => true), method: :put, class: 'btn' do %>
+        <i class="icon-random"></i> Finish
+      <% end %>
+    <% else %>
+      <%= link_to todo_path(todo, "todo[completed]" => false), method: :put, class: 'btn' do %>
+        <i class="icon-fire"></i> Redo
+      <% end %>
+    <% end %>
   <% end %>
 </div>
