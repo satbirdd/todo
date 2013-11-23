@@ -2,7 +2,7 @@ class Todo < ActiveRecord::Base
   attr_accessible :description, :title, :step_id, :completed
   # attr_accessor :completed_percents
 
-  has_many :steps
+  has_many :steps, order: "steps.created_at"
   belongs_to :parent_step, class_name: "Step", foreign_key: "step_id"
 
   def completed_percents
