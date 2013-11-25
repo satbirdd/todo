@@ -8,7 +8,23 @@
 </head>
 <body>
   <div class='title'>
-    <div><i class="icon-list"></i> 待办事项</div>
+    <div>
+      <span>
+        <i class="icon-list"></i>待办事项
+      </span>
+      <span class="user">
+        <% if user_signed_in? %>
+          <i class="icon-user">
+            <%= current_user.email %>
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+          </i>
+        <% else %>
+          <i class="icon-user">
+            <%= link_to "Sign in", new_user_session_path %>
+          </i>
+        <% end %>
+      <span>
+    </div>
   </div>
   <div class='body'>
     <%= yield %>
