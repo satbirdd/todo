@@ -11,6 +11,8 @@ gem 'thin'
 gem 'pg'
 gem 'kaminari'
 
+gem 'devise'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'better_errors'

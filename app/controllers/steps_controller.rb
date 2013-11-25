@@ -92,6 +92,6 @@ class StepsController < ApplicationController
 
   protected
     def get_todo
-      @todo = Todo.find(params[:todo_id])
+      @todo = current_user.todos.find(params[:todo_id])
     end
 end

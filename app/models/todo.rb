@@ -4,8 +4,10 @@ class Todo < ActiveRecord::Base
 
   has_many :steps, order: "steps.created_at"
   belongs_to :parent_step, class_name: "Step", foreign_key: "step_id"
+  belongs_to :user
 
   def completed_percents
+    deal_with_scheduled
     steps_count = steps.count
     if steps_count > 0
       finished_count = steps.find_all { |step| step.completed == true }.size
@@ -27,5 +29,8 @@ class Todo < ActiveRecord::Base
 
   def not_completed?
     !completed
+  end
+
+  def deal_with_scheduled
   end
 end
