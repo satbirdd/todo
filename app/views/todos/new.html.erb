@@ -3,3 +3,13 @@
 <%= render 'form' %>
 
 <%= link_to '返回', todos_path %>
+<script>
+  $(function(){
+    $(".tag").click(function(event) {
+      var html_input = "<input type='hidden' name='todo[tags][]' value='"
+        + $(this).attr('data-tag-id')
+        + "' />"
+      $("form").prepend(html_input);
+    })
+  })
+</script>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125132722) do
+ActiveRecord::Schema.define(:version => 20131212125422) do
 
   create_table "steps", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(:version => 20131125132722) do
     t.datetime "updated_at",                    :null => false
     t.integer  "todo_id"
     t.boolean  "completed",  :default => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags_todos", :force => true do |t|
+    t.integer "todo_id"
+    t.integer "tag_id"
   end
 
   create_table "todos", :force => true do |t|

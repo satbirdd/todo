@@ -49,11 +49,15 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
+    tag_ids = params[:todo].delete(:tags)
     @todo = Todo.new(params[:todo])
+
     @todo.user = current_user
 
     respond_to do |format|
       if @todo.save
+        tags = tag_ids.map { |tag_id| Tag.find(tag_id) }
+        @todo.tags << tags
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
         format.json { render json: @todo, status: :created, location: @todo }
       else

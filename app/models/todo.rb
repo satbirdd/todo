@@ -3,6 +3,7 @@ class Todo < ActiveRecord::Base
   # attr_accessor :completed_percents
 
   has_many :steps, order: "steps.created_at"
+  has_and_belongs_to_many :tags
   belongs_to :parent_step, class_name: "Step", foreign_key: "step_id"
   belongs_to :user
 

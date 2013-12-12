@@ -3,7 +3,13 @@
 </ul>
 
 <span class="description">备注：<%= todo.description %></span>
-
+<div class="tags">tags:
+  <% todo.tags.each do |tag| %>
+    <a href="javascript:void(0);" class="btn">
+      <%= tag.name %> <i class="icon-remove"></i>
+    </a>
+  <% end %>
+</div>
 <div class="actions">
   <%= link_to(new_todo_step_path(todo), class: 'btn') do %>
     <i class="icon-plus"></i> 添加里程牌

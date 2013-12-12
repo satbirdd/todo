@@ -1,4 +1,7 @@
 Todos::Application.routes.draw do
+  resources :tags
+
+
   devise_for :users
 
   resources :todos do
