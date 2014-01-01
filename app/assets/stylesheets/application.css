@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+
+ .sidebar {
+  position: fixed;
+  left: 10px;
+  top: 50px;
+  /*background: #f1f1f1;*/
+  width: 200px;
+ }
+
+.sidebar a:visited {
+  color: white;
+}
+
+.sidebar a:active {
+  color: white;
+}

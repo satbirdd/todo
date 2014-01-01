@@ -29,6 +29,13 @@
   <div class='body'>
     <%= yield %>
   </div>
+  <div class='sidebar'>
+    <% Tag.all.each do |tag| %>
+      <span class="label label-info">
+        <%= link_to tag.name, tag %>
+      </span>
+    <% end %>
+  </div>
   <%= yield :javascripts %>
 </body>
 </html>
